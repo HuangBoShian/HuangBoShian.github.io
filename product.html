@@ -62,21 +62,18 @@
             var columns = data.getNumberOfColumns();
             var rows = data.getNumberOfRows();
 
-            // var str = "";
             for(var r = 0 ; r < rows ; r++){
-                // str += data.getFormattedValue(r,0) + "(" +  data.getFormattedValue(r,1) + ")" + " 訂 " +  data.getFormattedValue(r,2) + " : " + data.getFormattedValue(r,3) + "個 <br />";
                 image[r] = data.getFormattedValue(r,0);
                 title[r] = data.getFormattedValue(r,1);
                 info[r] = data.getFormattedValue(r,2);
             }
-            // document.getElementById("demo").innerHTML = str;
         }
 
         function detail(){
             var Y = decodeURIComponent(GetUrlVar('pid'));
             
             text += '<h4>' + title[Y] + '</h4>';
-            text += '<img src="' + image[Y] + '">';
+            text += '<img src="product_img' + image[Y] + '.jpg">';
             
             document.getElementById("demo").innerHTML += text;
         }
@@ -99,7 +96,7 @@
   <div class="row" id="demo">
   </div>
 
-  <!-- <script type="text/javascript">detail();</script> -->
+  <script type="text/javascript">detail();</script>
                   
   <a href="javascript:detail();">顯示細節</a>
 
