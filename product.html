@@ -71,11 +71,7 @@
 
         var Y = decodeURIComponent(GetUrlVar('pid'));
         function detail(){
-            // text += '&ensp;<img src="product_img/' + image[Y] + '.jpg">';
-            const path = "product_img/" + image[Y] + ".jpg";
-            const img0 = document.getElementById("img0");
-            img0.src = path;
-
+            text += '&ensp;<img src="product_img/' + image[Y] + '.jpg">';
             text += '<h5>&ensp;' + title[Y] + '</h5>';
             text += '<h5>&ensp;' + info[Y] + '</h5>';
             
@@ -105,7 +101,6 @@
     </script>
   
     <div class="row" id="demo">
-        <img class="materialboxed" width="650" src="" id="img0">
     </div>
                   
     <a href="javascript:detail();">顯示細節</a>
