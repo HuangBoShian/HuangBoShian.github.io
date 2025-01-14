@@ -73,8 +73,8 @@
             var Y = decodeURIComponent(GetUrlVar('pid'));
             
             text += '&ensp;<img src="product_img/' + image[Y] + '.jpg">';
-            text += '&ensp;<h5>' + title[Y] + '</h5>';
-            text += '&ensp;<h5>' + info[Y] + '</h5>';
+            text += '<h5>&ensp;' + title[Y] + '</h5>';
+            text += '<h5>&ensp;' + info[Y] + '</h5>';
             
             document.getElementById("demo").innerHTML += text;
         }
