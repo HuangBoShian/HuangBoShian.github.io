@@ -73,7 +73,7 @@
             var Y = decodeURIComponent(GetUrlVar('pid'));
             
             text += '<h4>' + title[Y] + '</h4>';
-            text += '<img src="product_img' + image[Y] + '.jpg">';
+            text += '<img src="product_img/' + image[Y] + '.jpg">';
             
             document.getElementById("demo").innerHTML += text;
         }
@@ -95,8 +95,6 @@
   
   <div class="row" id="demo">
   </div>
-
-  <script type="text/javascript">detail();</script>
                   
   <a href="javascript:detail();">顯示細節</a>
 
