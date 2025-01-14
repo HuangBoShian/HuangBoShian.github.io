@@ -66,9 +66,9 @@
 				text += '	<div class="card">'
 				text += '		<div class="card-image">'
 				text += '			<img src="product_img/' + image[i] + '.jpg">'
-				text += '    	<span class="card-title">' + title[i] + '</span>'
 				text += '		</div>'
 				text += '		<div class="card-content">'
+				text += '			<p>' + title[i] + '</p>'
 				text += '			<p>' + info[i] + '</p>'
 				text += '		</div>'
 				text += '		<div class="card-action">'
@@ -118,6 +118,7 @@
 	        $('.collapsible').collapsible();
 	        $('.materialboxed').materialbox();
 	        display();
+	        f();
 
 	        var owl = $('.owl-carousel');
 	            owl.owlCarousel({
