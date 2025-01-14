@@ -69,10 +69,9 @@
             }
         }
 
+        var Y = decodeURIComponent(GetUrlVar('pid'));
         function detail(){
-            var Y = decodeURIComponent(GetUrlVar('pid'));
-            
-            text += '&ensp;<img src="product_img/' + image[Y] + '.jpg">';
+            // text += '&ensp;<img src="product_img/' + image[Y] + '.jpg">';
             text += '<h5>&ensp;' + title[Y] + '</h5>';
             text += '<h5>&ensp;' + info[Y] + '</h5>';
             
@@ -80,8 +79,9 @@
         }
 
     </script>   
-  </head>
-  <body>
+    </head>
+    <body>
+    
     <!-- header -->
     <nav>
         <div class="nav-wrapper">
@@ -93,22 +93,29 @@
             </ul>
         </div>
     </nav>
-  
-  <div class="row" id="demo">
-  </div>
-                  
-  <a href="javascript:detail();">顯示細節</a>
 
-  <!-- footer -->
+    <script>
+        $(document).ready(function(){
+            $('.materialboxed').materialbox();
+        });
+    </script>
+  
+    <div class="row" id="demo">
+        <img class="materialboxed" width="650" src="product_img/' + image[Y] + '.jpg">
+    </div>
+                  
+    <a href="javascript:detail();">顯示細節</a>
+
+    <!-- footer -->
     <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <h5 class="white-text">購買規則</h5>
+                    <p class="grey-text text-lighten-4">呜啦呀哈 呀哈呜哈</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                    <h5 class="white-text">社群連結</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="https://x.com/chiikawa_market">X</a></li>
                         <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/chiikawa_market/">Instagram</a></li>
