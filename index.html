@@ -61,7 +61,7 @@
 
 		function f(){
 			let text = '';
-			for (let i = 0; i < 5; i++) {
+			for (let i = 0; i < image.length; i++) {
 				text += '<div class="col s12 m6 l3">'
 				text += '	<div class="card">'
 				text += '		<div class="card-image">'
@@ -72,7 +72,7 @@
 				text += '			<p>' + info[i] + '</p>'
 				text += '		</div>'
 				text += '		<div class="card-action">'
-				text += '			<a href="product.html?pid=' + i + '">This is a link</a>'
+				text += '			<a href="product.html?pid=' + i + '">ADD TO CART</a>'
 				text += '		</div>'
 				text += '	</div>'
 				text += '</div>'
@@ -101,11 +101,11 @@
 	<!-- header -->
 	<nav>
 	    <div class="nav-wrapper">
-	      	<a href="#" class="brand-logo"> Chiikawa Market </a>
+	      	<a href="index.html" class="brand-logo">&ensp;Chiikawa Market</a>
 	      	<ul id="nav-mobile" class="right hide-on-med-and-down">
-			    <li><a href="sass.html">首頁</a></li>
-			    <li><a href="badges.html">購物車</a></li>
-			    <li><a href="collapsible.html">查詢訂單</a></li>
+			    <li><a href="index.html">首頁</a></li>
+			    <li><a href="bill.html">購物車</a></li>
+			    <li><a href="order.html">查詢訂單</a></li>
 			</ul>
 	    </div>
 	</nav>
@@ -140,25 +140,23 @@
 	<footer class="page-footer">
         <div class="container">
             <div class="row">
-            	<div class="col l6 s12">
-                	<h5 class="white-text">Footer Content</h5>
-                	<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              	</div>
-	            <div class="col l4 offset-l2 s12">
-	                <h5 class="white-text">Links</h5>
-	                <ul>
-	                	<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-	                	<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-	                	<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-	                	<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-	                </ul>
-	            </div>
-        	</div>
-    	</div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://x.com/chiikawa_market">X</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/chiikawa_market/">Instagram</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://page.line.me/198xtogr?oat__id=2646203&openQrModal=true">Line</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="footer-copyright">
             <div class="container">
-            	© 2024 Copyright Text
-            	<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                ©nagano / chiikawa committee　©Gray Parka Service
             </div>
         </div>
     </footer>
