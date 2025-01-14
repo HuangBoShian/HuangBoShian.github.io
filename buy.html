@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>購買吉伊卡哇</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+
+    <!-- javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+        
+	<script>
+	function formresponse() {
+		var a = document.forms["form1"]["address"].value;
+		var p = document.forms["form1"]["phone"].value;
+		var n = document.forms["form1"]["number"].value;
+		var c = document.forms["form1"]["code"].value;
+		if (a == null || a == "")
+		   {
+			alert("地址不可為空白!");
+			return false;
+		   }
+		else if (p == null || p == "")
+		   {
+			alert("手機不可為空白!");
+			return false;
+		   }
+		else if (n == null || n == "")
+		   {
+			alert("卡號不可為空白!");
+			return false;
+		   }
+		else if (c == null || c == "")
+		   {
+			alert("安全碼不可為空白!");
+			return false;
+		   }
+		else
+		   {
+		   	// https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/viewform?usp=pp_url&entry.1316704900=a&entry.1365273746=b&entry.729184069=c&entry.740851220=d
+			var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/formResponse?entry.1316704900=" + a + "&entry.1365273746=" + p + '&entry.729184069' + n + '&entry.740851220' + c + "&submit=Submit";
+			var NewOpen = window.open(MySubmit);
+		   }
+	}
+	</script>
+</head>
+<body>
+	<!-- header -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo">&ensp;Chiikawa Market</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="bill.html">購物車</a></li>
+                <li><a href="order.html">查詢訂單</a></li>
+            </ul>
+        </div>
+    </nav>
+
+	<div class="row">
+    	<form class="col s12" name="form1" action="javascript:formresponse();">
+	    	<div class="row">
+		    	<div class="input-field col s6">
+		        	<i class="material-icons prefix">account_circle</i>
+		        	<input id="icon_prefix" type="text" class="validate" name="address">
+		        	<label for="icon_prefix">地址</label>
+		        </div>
+		        <div class="input-field col s6">
+		        	<i class="material-icons prefix">phone</i>
+		        	<input id="icon_telephone" type="tel" class="validate" name="phone">
+		        	<label for="icon_telephone">電話</label>
+		    	</div>
+		    	<div class="input-field col s6">
+		        	<i class="material-icons prefix">phone</i>
+		        	<input id="icon_telephone" type="tel" class="validate" name="number">
+		        	<label for="icon_telephone">信用卡卡號</label>
+		    	</div>
+		    	<div class="input-field col s6">
+		        	<i class="material-icons prefix">phone</i>
+		        	<input id="icon_telephone" type="tel" class="validate" name="code">
+		        	<label for="icon_telephone">安全碼</label>
+		    	</div>
+	    	</div>
+	    	
+	    	<!-- <input type="submit" value="Submit"> -->
+
+	    	<a class="waves-effect waves-light btn" type="submit" href="thank.html">送出表單<i class="material-icons right">send</i></a>
+	    </form>
+	</div>
+
+	<!-- footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">購買規則</h5>
+                    <p class="grey-text text-lighten-4">呜啦呀哈 呀哈呜哈</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">社群連結</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://x.com/chiikawa_market">X</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/chiikawa_market/">Instagram</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://page.line.me/198xtogr?oat__id=2646203&openQrModal=true">Line</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                ©nagano / chiikawa committee　©Gray Parka Service
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
