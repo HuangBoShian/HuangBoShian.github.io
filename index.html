@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!--Let browser know website is optimized for mobile-->
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-	<!-- Compiled and minified CSS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
-
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <!-- Owl Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
 
     <!-- javascript -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
 
 	<title>ChiikawaMarket</title>
 
@@ -63,7 +60,7 @@
 				text += '<div class="col s12 m6 l3">'
 				text += '	<div class="card">'
 				text += '		<div class="card-image">'
-				text += '			<img src="image/' + image[i] + '.webp">'
+				text += '			<img src="product_img/' + image[i] + '.webp">'
 				text += '    	<span class="card-title">' + title[i] + '</span>'
 				text += '		</div>'
 				text += '		<div class="card-content">'
@@ -80,22 +77,17 @@
 		}
 
 		function display(){
-			var images =  new Array();
-            images[0] = "image/001.jpg";
-            images[1] = "image/002.jpg";
-            images[2] = "image/003.jpg";
-            images[3] = "image/004.jpg";
-            images[4] = "image/005.jpg";
+			var images =  ['a', 'b', 'c', 'd', 'e', 'f'];
 
             str = '<div class="owl-carousel owl-theme">';
-            for (i=0 ; i<=4 ; i++)
+            for (i = 0 ; i < images.length ; i++)
                 {
                 str += '<div class="item">';
-                str += '<img src="' + images[i] + '" />';
+                str += '<img src="display_img/' + images[i] + '.jpg" />';
                 str += '</div>';
                 }
             str += '</div>';
-            document.getElementById("demo111").innerHTML = str;
+            document.getElementById("demo").innerHTML = str;
             // alert(str);
 		}
 	</script>
@@ -114,17 +106,15 @@
 	    </div>
 	</nav>
 
-	<div class="row" id="demo111">
-	</div>
-
 	<div class="row" id="demo">
 	</div>
 
 	<script>
 		$(document).ready(function(){
-	        // $('.collapsible').collapsible();
+	        $('.collapsible').collapsible();
 	        $('.materialboxed').materialbox();
 	        display();
+	        f();
 
 	        var owl = $('.owl-carousel');
 	            owl.owlCarousel({
@@ -132,13 +122,13 @@
 	                loop: true,
 	                margin: 10,
 	                autoplay: true,
-	                autoplayTimeout: 1000,
+	                autoplayTimeout: 1900,
 	                autoplayHoverPause: true
 	            });
     	});
 	</script>
 
-	<a href="javascript:f();">按這裡</a>
+	<a href="javascript:f();">更多商品</a>
 
 	<!-- footer -->
 	<footer class="page-footer">
