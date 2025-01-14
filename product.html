@@ -72,8 +72,9 @@
         function detail(){
             var Y = decodeURIComponent(GetUrlVar('pid'));
             
-            text += '<h4>' + title[Y] + '</h4>';
             text += '<img src="product_img/' + image[Y] + '.jpg">';
+            text += '<h5>' + title[Y] + '</h5>';
+            text += '<h5>' + info[Y] + '</h5>';
             
             document.getElementById("demo").innerHTML += text;
         }
