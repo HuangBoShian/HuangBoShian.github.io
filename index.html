@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,12 +48,13 @@
 		    // var str = "";
 		    for(var r = 0 ; r < rows ; r++){
 		      	// str += data.getFormattedValue(r,0) + "(" +  data.getFormattedValue(r,1) + ")" + " 訂 " +  data.getFormattedValue(r,2) + " : " + data.getFormattedValue(r,3) + "個 <br />";
+		      	image[r] = data.getFormattedValue(r,0);
 		    	title[r] = data.getFormattedValue(r,1);
-		    	image[r] = data.getFormattedValue(r,0);
+		    	info[r] = data.getFormattedValue(r,2);
 		    }
 			// document.getElementById("demo").innerHTML = str;
 		}
-		alert(image);
+
 		function f(){
 			let text = '';
 			for (let i = 0; i < 5; i++) {
@@ -64,7 +65,7 @@
 				text += '    	<span class="card-title">' + title[i] + '</span>'
 				text += '		</div>'
 				text += '		<div class="card-content">'
-				text += '			<p>' + title[i] + '</p>'
+				text += '			<p>' + info[i] + '</p>'
 				text += '		</div>'
 				text += '		<div class="card-action">'
 				text += '			<a href="product.html?pid=' + i + '">This is a link</a>'
