@@ -75,7 +75,7 @@
         function detail(){
             var Y = decodeURIComponent(GetUrlVar('pid'));
             
-            text += '<h1>' + title[Y] + '</h1>';
+            text += '<h4>' + title[Y] + '</h4>';
             text += '<img src="' + image[Y] + '">';
             
             document.getElementById("demo").innerHTML += text;
@@ -99,10 +99,10 @@
   <div class="row" id="demo">
   </div>
 
-  <script type="text/javascript">detail();</script>
+  <!-- <script type="text/javascript">detail();</script> -->
                   
-  <!-- <a href="javascript:detail();">按這裡</a>       -->
-  <!-- footer -->
+  <a href="javascript:detail();">顯示細節</a>
+
   <!-- footer -->
     <footer class="page-footer">
         <div class="container">
