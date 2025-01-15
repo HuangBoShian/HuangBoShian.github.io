@@ -49,14 +49,11 @@
 		    var columns = data.getNumberOfColumns();
 		    var rows = data.getNumberOfRows();
 
-		    // var str = "";
 		    for(var r = 0 ; r < rows ; r++){
-		      	// str += data.getFormattedValue(r,0) + "(" +  data.getFormattedValue(r,1) + ")" + " 訂 " +  data.getFormattedValue(r,2) + " : " + data.getFormattedValue(r,3) + "個 <br />";
 		      	image[r] = data.getFormattedValue(r,0);
 		    	title[r] = data.getFormattedValue(r,1);
 		    	info[r] = data.getFormattedValue(r,2);
 		    }
-			// document.getElementById("demo").innerHTML = str;
 		}
 
 		function f(){
@@ -92,7 +89,6 @@
                 }
             str += '</div>';
             document.getElementById("demo0").innerHTML = str;
-            // alert(str);
 		}
 	</script>
 
