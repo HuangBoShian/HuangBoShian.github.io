@@ -1,190 +1,98 @@
-<!DOCTYPE html> 
-<html> 
+<!DOCTYPE html>
+<html>
 <head>
 	<link rel="stylesheet" href="style.css">
 
-	<!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>購買吉伊卡哇</title>
-
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
-    <!-- Compiled and minified CSS -->
+    <!-- JavaScript 依賴 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- Owl Stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
-
-    <!-- javascript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-        
-	<script>
-		// 取得網址裡的參數 
-        function GetUrlVar(VarName) 
-        {
-          name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-          var regexS = "[\\?&]" + VarName + "=([^&#]*)";
-          var regex = new RegExp(regexS);
-          var results = regex.exec(window.location.href);
-          if (results == null)
-             return "";
-          else
-             return results[1];
+    <script>
+        // 解析 URL 參數
+        function getUrlParam(paramName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(paramName);
         }
 
-        let text = "";
-        let title = [];
-        let image = [];
-        let info = [];
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(init);
+        // 在頁面加載時執行
+        $(document).ready(function () {
+            const pid = getUrlParam('pid');
+            const title = decodeURIComponent(getUrlParam('title'));
+            const info = decodeURIComponent(getUrlParam('info'));
 
-        function init(){
-            var url = 'https://docs.google.com/spreadsheets/d/1y0V1PAjGfsJIDwnHHmaFcTO4Ojx2rgiB03jTBDYeIhc/gviz/tq?sheet=工作表1';
-            var query = new google.visualization.Query(url);
-            query.setQuery('select *'); //where A=
-            query.send(processSheetsData);
-        }     
+            // 顯示選擇的商品
+            const productDetails = `
+                <h5>您選擇的商品：</h5>
+                <p><strong>${title}</strong></p>
+                <p>${info}</p>
+            `;
+            $('#product-info').html(productDetails);
 
-        function processSheetsData(response) {
-            var data = response.getDataTable();
-            var columns = data.getNumberOfColumns();
-            var rows = data.getNumberOfRows();
+            // 將商品名稱寫入表單隱藏欄位
+            $('#product-title').val(title);
+        });
 
-            for(var r = 0 ; r < rows ; r++){
-                image[r] = data.getFormattedValue(r,0);
-                title[r] = data.getFormattedValue(r,1);
-                info[r] = data.getFormattedValue(r,2);
+        // 表單提交邏輯
+        function formresponse() {
+            const address = document.forms["form1"]["address"].value;
+            const phone = document.forms["form1"]["phone"].value;
+            const cardNumber = document.forms["form1"]["number"].value;
+            const securityCode = document.forms["form1"]["code"].value;
+
+            if (!address || !phone || !cardNumber || !securityCode) {
+                alert("所有欄位都是必填的！");
+                return false;
             }
-            getproduct();
+
+            alert("感謝購買！");
+            window.location.href = "thank.html";
         }
-
-        var Y = decodeURIComponent(GetUrlVar('pid'));
-        function getproduct(){
-            text += '&ensp;您購買的商品是 : ';
-            text += '<h5>&ensp;' + title[Y] + '</h5>';
-            
-            document.getElementById("demo").innerHTML += text;
-        }
-
-
-	function formresponse() {
-		var a = document.forms["form1"]["address"].value;
-		var p = document.forms["form1"]["phone"].value;
-		var n = document.forms["form1"]["number"].value;
-		var c = document.forms["form1"]["code"].value;
-		if (a == null || a == "")
-		   {
-			alert("地址不可為空白!");
-			return false;
-		   }
-		else if (p == null || p == "")
-		   {
-			alert("手機不可為空白!");
-			return false;
-		   }
-		else if (n == null || n == "")
-		   {
-			alert("卡號不可為空白!");
-			return false;
-		   }
-		else if (c == null || c == "")
-		   {
-			alert("安全碼不可為空白!");
-			return false;
-		   }
-		else if (a != null || p != null || n != null || c != null)
-		   {
-		   	// https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/viewform?usp=pp_url&entry.1316704900=A&entry.1365273746=Aa&entry.729184069=aa&entry.740851220=a&entry.406109523=b
-			var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/formResponse?entry.1316704900=" + a + "&entry.1365273746=" + p + '&entry.729184069=' + n + '&entry.740851220=' + c  + '&entry.406109523='+ Y + '&submit=Submit';
-			var NewOpen = window.open(MySubmit);
-			window.location.href = "https://huangboshian.github.io/thank.html";
-			alert("感謝購買");
-		   }
-	}
-	</script>
+    </script>
 </head>
 <body>
-	<!-- header -->
+    <!-- Header -->
     <nav>
         <div class="nav-wrapper">
             <a href="index.html" class="brand-logo">&ensp;Chiikawa Market</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.html">首頁</a></li>
-                <li><a href="#">購物車</a></li>
-                <li><a href="#">查詢訂單</a></li>
-            </ul>
         </div>
     </nav>
 
-	<div class="row">
-    	<form class="col s12" name="form1" action="javascript:formresponse();">
-	    	<div class="row">
-		    	<div class="input-field col s6">
-		        	<i class="material-icons prefix">store</i>
-		        	<input id="icon_prefix" type="text" class="validate" name="address">
-		        	<label for="icon_prefix">地址</label>
-		        </div>
-		        <div class="input-field col s6">
-		        	<i class="material-icons prefix">phone</i>
-		        	<input id="icon_telephone" type="tel" class="validate" name="phone">
-		        	<label for="icon_telephone">電話</label>
-		    	</div>
-		    	<div class="input-field col s6">
-		        	<i class="material-icons prefix">credit_card</i>
-		        	<input id="icon_telephone" type="tel" class="validate" name="number">
-		        	<label for="icon_telephone">信用卡卡號</label>
-		    	</div>
-		    	<div class="input-field col s6">
-		        	<i class="material-icons prefix">error</i>
-		        	<input id="icon_telephone" type="tel" class="validate" name="code">
-		        	<label for="icon_telephone">安全碼</label>
-		    	</div>
-		    	<div class="row" id="demo">
-    			</div>
-	    	</div>
-	    	<input type="submit" value="送出表單">
-	    </form>
-	</div>
+    <div class="container">
+        <!-- 商品資訊顯示區域 -->
+        <div id="product-info"></div>
 
-	
+        <!-- 購買表單 -->
+        <form name="form1" onsubmit="formresponse(); return false;">
+            <div class="input-field">
+                <input id="address" name="address" type="text" class="validate">
+                <label for="address">地址</label>
+            </div>
+            <div class="input-field">
+                <input id="phone" name="phone" type="tel" class="validate">
+                <label for="phone">電話</label>
+            </div>
+            <div class="input-field">
+                <input id="number" name="number" type="text" class="validate">
+                <label for="number">信用卡卡號</label>
+            </div>
+            <div class="input-field">
+                <input id="code" name="code" type="text" class="validate">
+                <label for="code">安全碼</label>
+            </div>
 
-	<!-- footer -->
+            <!-- 隱藏欄位存儲商品名稱 -->
+            <input id="product-title" name="product-title" type="hidden">
+
+            <button type="submit" class="waves-effect waves-light btn">提交訂單</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
     <footer class="page-footer">
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">購買規則</h5>
-                    <p class="grey-text text-lighten-4">呜啦呀哈 呀哈呜哈</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">社群連結</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="https://x.com/chiikawa_market">X</a></li>
-                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/chiikawa_market/">Instagram</a></li>
-                        <li><a class="grey-text text-lighten-3" href="https://page.line.me/198xtogr?oat__id=2646203&openQrModal=true">Line</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                ©nagano / chiikawa committee　©Gray Parka Service
-            </div>
+            <p class="grey-text text-lighten-4">© Chiikawa Market</p>
         </div>
     </footer>
 </body>
 </html>
-
