@@ -31,41 +31,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
         
 	<script>
-	function formresponse() {
-		var a = document.forms["form1"]["address"].value;
-		var p = document.forms["form1"]["phone"].value;
-		var n = document.forms["form1"]["number"].value;
-		var c = document.forms["form1"]["code"].value;
-		if (a == null || a == "")
-		   {
-			alert("地址不可為空白!");
-			return false;
-		   }
-		else if (p == null || p == "")
-		   {
-			alert("手機不可為空白!");
-			return false;
-		   }
-		else if (n == null || n == "")
-		   {
-			alert("卡號不可為空白!");
-			return false;
-		   }
-		else if (c == null || c == "")
-		   {
-			alert("安全碼不可為空白!");
-			return false;
-		   }
-		else if (a != null || p != null || n != null || c != null)
-		   {
-		   	// https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/viewform?usp=pp_url&entry.1316704900=a&entry.1365273746=b&entry.729184069=c&entry.740851220=d
-			var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/formResponse?entry.1316704900=" + a + "&entry.1365273746=" + p + '&entry.729184069=' + n + '&entry.740851220=' + c + "&submit=Submit";
-			var NewOpen = window.open(MySubmit);
-			window.location.href = "https://huangboshian.github.io/thank.html";
-			alert("感謝購買");
-		   }
-	}
-
 		// 取得網址裡的參數 
         function GetUrlVar(VarName) 
         {
@@ -114,6 +79,41 @@
         }
 
 
+	function formresponse() {
+		var a = document.forms["form1"]["address"].value;
+		var p = document.forms["form1"]["phone"].value;
+		var n = document.forms["form1"]["number"].value;
+		var c = document.forms["form1"]["code"].value;
+		var b = document.forms["form1"]["buy"].value;
+		if (a == null || a == "")
+		   {
+			alert("地址不可為空白!");
+			return false;
+		   }
+		else if (p == null || p == "")
+		   {
+			alert("手機不可為空白!");
+			return false;
+		   }
+		else if (n == null || n == "")
+		   {
+			alert("卡號不可為空白!");
+			return false;
+		   }
+		else if (c == null || c == "")
+		   {
+			alert("安全碼不可為空白!");
+			return false;
+		   }
+		else if (a != null || p != null || n != null || c != null)
+		   {
+		   	// https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/viewform?usp=pp_url&entry.1316704900=A&entry.1365273746=Aa&entry.729184069=aa&entry.740851220=a&entry.406109523=b
+			var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/formResponse?entry.1316704900=" + a + "&entry.1365273746=" + p + '&entry.729184069=' + n + '&entry.740851220=' + c  + '&entry.406109523='+ Y + '&submit=Submit';
+			var NewOpen = window.open(MySubmit);
+			window.location.href = "https://huangboshian.github.io/thank.html";
+			alert("感謝購買");
+		   }
+	}
 	</script>
 </head>
 <body>
@@ -152,13 +152,14 @@
 		        	<input id="icon_telephone" type="tel" class="validate" name="code">
 		        	<label for="icon_telephone">安全碼</label>
 		    	</div>
+		    	<div class="row" id="demo">
+    			</div>
 	    	</div>
 	    	<input type="submit" value="送出表單">
 	    </form>
 	</div>
 
-	<div class="row" id="demo">
-    </div>
+	
 
 	<!-- footer -->
     <footer class="page-footer">
