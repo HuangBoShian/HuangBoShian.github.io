@@ -1,0 +1,127 @@
+/* styles.css */
+
+/* 通用樣式 */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+nav {
+    background-color: #673ab7; /* 主色調 */
+}
+
+.nav-wrapper a.brand-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+ul#nav-mobile li a {
+    color: #fff;
+}
+
+footer {
+    background-color: #512da8; /* 深色調 */
+    color: #fff;
+}
+
+footer h5 {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+footer ul li a {
+    color: #cfcfcf;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #fff;
+}
+
+/* 表單樣式 */
+form input[type="text"],
+form input[type="tel"],
+form input[type="submit"] {
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+form input[type="submit"] {
+    background-color: #673ab7;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #512da8;
+}
+
+/* 商品卡片樣式 */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-action a {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #673ab7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-action a:hover {
+    color: #512da8;
+}
+
+/* 按鈕樣式 */
+.waves-effect {
+    background-color: #673ab7;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.waves-effect:hover {
+    background-color: #512da8;
+}
+
+/* 彈性設計 */
+@media screen and (max-width: 768px) {
+    .nav-wrapper ul {
+        display: none; /* 適應行動裝置，隱藏標籤 */
+    }
+    .brand-logo {
+        font-size: 1.5rem;
+    }
+}
+
