@@ -10,7 +10,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ChiikawaMarket</title>
+    <title></title>
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,22 +30,22 @@
     <!-- javascript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
 
+	<title>ChiikawaMarket</title>
+
 	<script>
-		let title = [];
-		let image = [];
-		let info = [];
+		title = [];
+		image = [];
+		info = [];
 		google.charts.load('current', {'packages':['corechart']});
 		google.charts.setOnLoadCallback(init);
 
-		// 初始化 Google Sheets 數據
 		function init(){
 			var url = 'https://docs.google.com/spreadsheets/d/1y0V1PAjGfsJIDwnHHmaFcTO4Ojx2rgiB03jTBDYeIhc/gviz/tq?sheet=工作表1';
 			var query = new google.visualization.Query(url);
-    		query.setQuery('select *'); // 獲取所有數據
+    		query.setQuery('select *'); //where A=
     		query.send(processSheetsData);
 		}
 
-		// 加載 Google Sheets 數據
 		function processSheetsData(response) {
 		    var data = response.getDataTable();
 		    var columns = data.getNumberOfColumns();
@@ -60,45 +60,45 @@
 		    f();
 		}
 
-		// 顯示商品
 		function f(){
 			let text = '';
 			for (let i = 0; i < image.length; i++) {
-				text += '<div class="col s12 m6 l3">';
-				text += '	<div class="card">';
-				text += '		<div class="card-image">';
-				text += '			<img src="product_img/' + image[i] + '.jpg">';
-				text += '		</div>';
-				text += '		<div class="card-content">';
-				text += '			<p>' + title[i] + '</p>';
-				text += '			<p>' + info[i] + '</p>';
-				text += '		</div>';
-				text += '		<div class="card-action">';
-				text += '			<a href="product.html?pid=' + i + '">ADD TO CART</a>';
-				text += '		</div>';
-				text += '	</div>';
-				text += '</div>';
+				text += '<div class="col s12 m6 l3">'
+				text += '	<div class="card">'
+				text += '		<div class="card-image">'
+				text += '			<img src="product_img/' + image[i] + '.jpg">'
+				text += '		</div>'
+				text += '		<div class="card-content">'
+				text += '			<p>' + title[i] + '</p>'
+				text += '			<p>' + info[i] + '</p>'
+				text += '		</div>'
+				text += '		<div class="card-action">'
+				text += '			<a href="product.html?pid=' + i + '">ADD TO CART</a>'
+				text += '		</div>'
+				text += '	</div>'
+				text += '</div>'
 			}
-			document.getElementById("demo1").innerHTML = text;
+			document.getElementById("demo1").innerHTML += text;
 		}
 
-		// 輪播圖展示
 		function display(){
 			var images =  ['a', 'b', 'c', 'd', 'e', 'f'];
 
             str = '<div class="owl-carousel owl-theme">';
-            for (i = 0 ; i < images.length ; i++) {
+            for (i = 0 ; i < images.length ; i++)
+                {
                 str += '<div class="item">';
                 str += '<img src="display_img/' + images[i] + '.jpg">';
                 str += '</div>';
-            }
+                }
             str += '</div>';
             document.getElementById("demo0").innerHTML = str;
 		}
 	</script>
+
 </head>
 <body>
-	<!-- Header -->
+	<!-- header -->
 	<nav>
 	    <div class="nav-wrapper">
 	      	<a href="index.html" class="brand-logo">&ensp;Chiikawa Market</a>
@@ -110,16 +110,16 @@
 	    </div>
 	</nav>
 
-	<!-- 商品展示區 -->
 	<div class="row" id="demo0">
 	</div>
 
 	<div class="row" id="demo1">
 	</div>
-
-	<!-- 初始化輪播圖和顯示商品 -->
+	
 	<script>
 		$(document).ready(function(){
+	        $('.collapsible').collapsible();
+	        $('.materialboxed').materialbox();
 	        display();
 
 	        var owl = $('.owl-carousel');
@@ -136,7 +136,7 @@
 
 	<a class="waves-effect waves-light btn-small" href="javascript:f();">更多商品</a>
 
-	<!-- Footer -->
+	<!-- footer -->
 	<footer class="page-footer">
         <div class="container">
             <div class="row">
@@ -162,3 +162,4 @@
     </footer>
 </body>
 </html>
+
