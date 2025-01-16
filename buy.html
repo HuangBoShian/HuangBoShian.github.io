@@ -2,7 +2,7 @@
 <html> 
 <head>
 	<link rel="stylesheet" href="style.css">
-	
+
 	<!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
     <script src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -65,6 +65,55 @@
 			alert("感謝購買");
 		   }
 	}
+
+		// 取得網址裡的參數 
+        function GetUrlVar(VarName) 
+        {
+          name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+          var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+          var regex = new RegExp(regexS);
+          var results = regex.exec(window.location.href);
+          if (results == null)
+             return "";
+          else
+             return results[1];
+        }
+
+        let text = "";
+        let title = [];
+        let image = [];
+        let info = [];
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(init);
+
+        function init(){
+            var url = 'https://docs.google.com/spreadsheets/d/1y0V1PAjGfsJIDwnHHmaFcTO4Ojx2rgiB03jTBDYeIhc/gviz/tq?sheet=工作表1';
+            var query = new google.visualization.Query(url);
+            query.setQuery('select *'); //where A=
+            query.send(processSheetsData);
+        }     
+
+        function processSheetsData(response) {
+            var data = response.getDataTable();
+            var columns = data.getNumberOfColumns();
+            var rows = data.getNumberOfRows();
+
+            for(var r = 0 ; r < rows ; r++){
+                image[r] = data.getFormattedValue(r,0);
+                title[r] = data.getFormattedValue(r,1);
+                info[r] = data.getFormattedValue(r,2);
+            }
+        }
+
+        var Y = decodeURIComponent(GetUrlVar('pid'));
+        function detail(){
+            text += '&ensp;您購買的商品是 : ';
+            text += '<h5>&ensp;' + title[Y] + '</h5>';
+            
+            document.getElementById("demo").innerHTML += text;
+        }
+
+
 	</script>
 </head>
 <body>
@@ -107,6 +156,9 @@
 	    	<input type="submit" value="送出表單">
 	    </form>
 	</div>
+
+	<div class="row" id="demo">
+    </div>
 
 	<!-- footer -->
     <footer class="page-footer">
