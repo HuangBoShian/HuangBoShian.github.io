@@ -1,38 +1,37 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
+<!DOCTYPE html> 
+<html> 
+<head>
+	<link rel="stylesheet" href="style.css">
 
-        <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
-        <script src="https://www.gstatic.com/charts/loader.js"></script>
+	<!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>購買吉伊卡哇</title>
 
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-        <!-- Owl Stylesheets -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
 
-        <!-- javascript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-          
-        <script type="text/javascript">
-
-        // 取得網址裡的參數 
+    <!-- javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+        
+	<script>
+		// 取得網址裡的參數 
         function GetUrlVar(VarName) 
         {
           name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -69,23 +68,56 @@
                 title[r] = data.getFormattedValue(r,1);
                 info[r] = data.getFormattedValue(r,2);
             }
-            detail();
+            getproduct();
         }
 
         var Y = decodeURIComponent(GetUrlVar('pid'));
-        function detail(){
-            text += '&ensp;<img src="product_img/' + image[Y] + '.jpg">';
+        function getproduct(){
+            text += '&ensp;您購買的商品是 : ';
             text += '<h5>&ensp;' + title[Y] + '</h5>';
-            text += '<h5>&ensp;' + info[Y] + '</h5>';
             
             document.getElementById("demo").innerHTML += text;
         }
 
-    </script>   
-    </head>
-    <body>
-    
-    <!-- header -->
+
+	function formresponse() {
+		var a = document.forms["form1"]["address"].value;
+		var p = document.forms["form1"]["phone"].value;
+		var n = document.forms["form1"]["number"].value;
+		var c = document.forms["form1"]["code"].value;
+		if (a == null || a == "")
+		   {
+			alert("地址不可為空白!");
+			return false;
+		   }
+		else if (p == null || p == "")
+		   {
+			alert("手機不可為空白!");
+			return false;
+		   }
+		else if (n == null || n == "")
+		   {
+			alert("卡號不可為空白!");
+			return false;
+		   }
+		else if (c == null || c == "")
+		   {
+			alert("安全碼不可為空白!");
+			return false;
+		   }
+		else if (a != null || p != null || n != null || c != null)
+		   {
+		   	// https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/viewform?usp=pp_url&entry.1316704900=A&entry.1365273746=Aa&entry.729184069=aa&entry.740851220=a&entry.406109523=b
+			var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/formResponse?entry.1316704900=" + a + "&entry.1365273746=" + p + '&entry.729184069=' + n + '&entry.740851220=' + c  + '&entry.406109523='+ Y + '&submit=Submit';
+			var NewOpen = window.open(MySubmit);
+			window.location.href = "https://huangboshian.github.io/thank.html";
+			alert("感謝購買");
+		   }
+	}
+	</script>
+</head>
+<body>
+	<!-- header -->
     <nav>
         <div class="nav-wrapper">
             <a href="index.html" class="brand-logo">&ensp;Chiikawa Market</a>
@@ -97,18 +129,39 @@
         </div>
     </nav>
 
-    <script>
-        $(document).ready(function(){
-            $('.materialboxed').materialbox();
-        });
-    </script>
-  
-    <div class="row" id="demo">
-    </div>
-               
-    <a class="waves-effect waves-light btn-small" href="buy.html?pid='+Y+'">加入購物車</a>
+	<div class="row">
+    	<form class="col s12" name="form1" action="javascript:formresponse();">
+	    	<div class="row">
+		    	<div class="input-field col s6">
+		        	<i class="material-icons prefix">store</i>
+		        	<input id="icon_prefix" type="text" class="validate" name="address">
+		        	<label for="icon_prefix">地址</label>
+		        </div>
+		        <div class="input-field col s6">
+		        	<i class="material-icons prefix">phone</i>
+		        	<input id="icon_telephone" type="tel" class="validate" name="phone">
+		        	<label for="icon_telephone">電話</label>
+		    	</div>
+		    	<div class="input-field col s6">
+		        	<i class="material-icons prefix">credit_card</i>
+		        	<input id="icon_telephone" type="tel" class="validate" name="number">
+		        	<label for="icon_telephone">信用卡卡號</label>
+		    	</div>
+		    	<div class="input-field col s6">
+		        	<i class="material-icons prefix">error</i>
+		        	<input id="icon_telephone" type="tel" class="validate" name="code">
+		        	<label for="icon_telephone">安全碼</label>
+		    	</div>
+		    	<div class="row" id="demo">
+    			</div>
+	    	</div>
+	    	<input type="submit" value="送出表單">
+	    </form>
+	</div>
 
-    <!-- footer -->
+	
+
+	<!-- footer -->
     <footer class="page-footer">
         <div class="container">
             <div class="row">
@@ -134,3 +187,4 @@
     </footer>
 </body>
 </html>
+
