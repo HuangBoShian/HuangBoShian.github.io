@@ -79,6 +79,9 @@
             text += '<h5>&ensp;' + info[Y] + '</h5>';
             
             document.getElementById("demo").innerHTML += text;
+
+            // 動態設置加入購物車按鈕的 href
+            document.getElementById("add-to-cart").setAttribute("href", "buy.html?pid=" + Y);
         }
 
     </script>   
@@ -106,7 +109,7 @@
     <div class="row" id="demo">
     </div>
                
-    <a class="waves-effect waves-light btn-small" href="buy.html?pid={{Y}}">加入購物車</a>
+    <a id="add-to-cart" class="waves-effect waves-light btn-small">加入購物車</a>
 
     <!-- footer -->
     <footer class="page-footer">
