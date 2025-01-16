@@ -57,7 +57,6 @@
             var query = new google.visualization.Query(url);
             query.setQuery('select *'); //where A=
             query.send(processSheetsData);
-            detail();
         }     
 
         function processSheetsData(response) {
@@ -70,6 +69,7 @@
                 title[r] = data.getFormattedValue(r,1);
                 info[r] = data.getFormattedValue(r,2);
             }
+            detail();
         }
 
         var Y = decodeURIComponent(GetUrlVar('pid'));
