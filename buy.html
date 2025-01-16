@@ -73,7 +73,6 @@
 
         var Y = decodeURIComponent(GetUrlVar('pid'));
         function getproduct(){
-		alert(Y);
             text += '&ensp;您購買的商品是 : ';
             text += '<h5>&ensp;' + title[Y] + '</h5>';
             
@@ -109,7 +108,7 @@
 		else if (a != null || p != null || n != null || c != null)
 		   {
 		   	// https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/viewform?usp=pp_url&entry.1316704900=A&entry.1365273746=Aa&entry.729184069=aa&entry.740851220=a&entry.406109523=b
-			var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/formResponse?entry.1316704900=" + a + "&entry.1365273746=" + p + '&entry.729184069=' + n + '&entry.740851220=' + c  + '&entry.406109523='+ Y + '&submit=Submit';
+			var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLScrKKzUw5f5Q7yowUYjnx4UXy0Pbt_AixjWEGhCsa_rdJ2-8g/formResponse?entry.1316704900=" + a + "&entry.1365273746=" + p + '&entry.729184069=' + n + '&entry.740851220=' + c  + '&entry.406109523='+ title[Y] + '&submit=Submit';
 			var NewOpen = window.open(MySubmit);
 			window.location.href = "https://huangboshian.github.io/thank.html";
 			alert("感謝購買");
