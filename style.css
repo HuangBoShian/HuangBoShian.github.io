@@ -125,3 +125,78 @@ form input[type="submit"]:hover {
     }
 }
 
+/* 更新的 Header 和 Footer 樣式 */
+
+/* Header 樣式 */
+nav {
+    background: linear-gradient(45deg, #4caf50, #81c784); /* 清新的綠色漸層 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 提升視覺層次 */
+}
+
+.nav-wrapper a.brand-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff; /* 白色字體 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* 增加輕微陰影 */
+}
+
+ul#nav-mobile li a {
+    color: #ffffff; /* 白色字體 */
+    font-weight: 500;
+    padding: 0 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+ul#nav-mobile li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* 半透明背景 */
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+/* Footer 樣式 */
+footer {
+    background: linear-gradient(45deg, #263238, #455a64); /* 深藍灰色漸層 */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+footer p, footer ul li a {
+    color: #cfd8dc; /* 柔和的灰藍色 */
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #ffffff; /* 滑鼠懸停時切換為白色 */
+    text-decoration: underline;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 版權區域樣式 */
+.footer-copyright {
+    background-color: #1c313a; /* 更深的灰藍色 */
+    padding: 10px 0;
+    color: #b0bec5; /* 柔和的灰色字體 */
+    font-size: 0.9rem;
+}
+
+.footer-copyright a {
+    color: #80deea; /* 淡藍色連結 */
+    transition: color 0.3s ease;
+}
+
+.footer-copyright a:hover {
+    color: #ffffff; /* 滑鼠懸停時切換為白色 */
+}
