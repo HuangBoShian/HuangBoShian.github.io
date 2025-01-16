@@ -74,7 +74,6 @@
 
         var Y = decodeURIComponent(GetUrlVar('pid'));
         function detail(){
-            alert(Y);
             text += '&ensp;<img src="product_img/' + image[Y] + '.jpg">';
             text += '<h5>&ensp;' + title[Y] + '</h5>';
             text += '<h5>&ensp;' + info[Y] + '</h5>';
@@ -107,7 +106,7 @@
     <div class="row" id="demo">
     </div>
                
-    <a class="waves-effect waves-light btn-small" href="buy.html?pid={{Y}}">加入購物車</a>
+    <a class="waves-effect waves-light btn-small" href="buy.html?pid="{{Y}}>加入購物車</a>
 
     <!-- footer -->
     <footer class="page-footer">
